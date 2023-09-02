@@ -1,15 +1,16 @@
 # Java Data structures personal implementation
-This is my own implementation of the most common, and probably basic, data structures using only the java language
+This is my own implementation of the most common, and probably basic, data structures using only the java language, the DS will only accept int primitives as the data
+
 The DS i will be implementing are the following:
-    * ArrayList
-    * LinkedList
-    * Stack
-    * Queue
-    * Hash table
-    * Dequeue
-    * Graph
-    * Binary tree
-    * Heap
+* ArrayList
+* LinkedList
+* Stack
+* Queue
+* Hash table
+* Dequeue
+* Graph
+* Binary tree
+* Heap
 
 The implementation will be made using the Intellji IDE and the java 20 JDK
 

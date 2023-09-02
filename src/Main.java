@@ -3,6 +3,8 @@
  @version: 09/01/2023
 **/
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.function.IntConsumer;
 
 public class Main {
     public static void main(String[] args) {
@@ -29,5 +31,12 @@ public class Main {
 
         list.addAll(1,5,2,6);
         System.out.println(list);
+
+        Iterator i = list.iterator();
+        while(i.hasNext()){
+            System.out.println(i.next());
+        }
+
+        list.forEach((IntConsumer) System.out::println);
     }
 }

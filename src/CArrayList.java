@@ -1,17 +1,20 @@
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
+import java.util.function.IntConsumer;
 /**
    This class defines a simple implementation of the ArrayList class (Custom ArrayList)
  **/
-public class CArrayList implements Iterable{
+public class CArrayList implements Iterable<Integer>{
     // Class attributes
-    private int list[];
+    private int[] list;
     private int size;
     private int highestIndex;
     public CArrayList(){
         this.list  = new int[0];
         this.size = list.length;
         highestIndex = 0;
+
     }
 
     /**
@@ -87,9 +90,42 @@ public class CArrayList implements Iterable{
         list=newArray;
         size = list.length;
     }
+
+    public void sort(){
+
+    }
+
+    public void forEach(IntConsumer action) {
+        for (int i = 0; i < size; i++) {
+            action.accept(list[i]);
+        }
+    }
+
     @Override
-    public Iterator iterator() {
-        return null;
+    public Iterator<Integer> iterator() {
+        return new IntIterator();
+    }
+
+    private class IntIterator implements Iterator<Integer> {
+        private int currentIndex = 0;
+
+        @Override
+        public boolean hasNext() {
+            return currentIndex < size;
+        }
+
+        @Override
+        public Integer next() {
+            if (!hasNext()) {
+                throw new NoSuchElementException();
+            }
+            return list[currentIndex++];
+        }
+
+        @Override
+        public void remove() {
+            throw new UnsupportedOperationException("Remove operation is not supported.");
+        }
     }
 
     @Override
@@ -97,5 +133,9 @@ public class CArrayList implements Iterable{
         return
                 Arrays.toString(list)
                 ;
+    }
+
+    private class DQuickSort {
+
     }
 }
