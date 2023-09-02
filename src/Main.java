@@ -22,9 +22,12 @@ public class Main {
         list.remove();
 
         System.out.println(list.toString());
-        list.remove(3);
+        list.remove(2);
         System.out.println(list.toString());
         list.removeAll();
         System.out.println(list.toString());
+
+        list.addAll(1,5,2,6);
+        System.out.println(list);
     }
 }

@@ -48,17 +48,24 @@ public class CArrayList implements Iterable{
         return list[highestIndex-1];
     }
     public void remove(){
-        list[--highestIndex]=0;
+        highestIndex--;
+        trimSize(highestIndex);
     }
 
     public void remove(int index){
-        int[] firstSplitList = new int[index];
-        int[] secondSplitList = new int[size-index];
-        list[index]=0;
+        if(index>highestIndex || index<0) throw new IndexOutOfBoundsException("Index is out of bounds");
+        int i=index;
+        while(i<(size-index)){
+            list[i]=list[++i];
+        }
+        highestIndex--;
+        trimSize(highestIndex);
     }
 
     public void removeAll(){
         list = new int[0];
+        size = list.length;
+        highestIndex=0;
     }
     public boolean isEmpty(){
         return size==0;
@@ -69,6 +76,16 @@ public class CArrayList implements Iterable{
             newSize[i]=list[i];
         }
         list = newSize;
+        size = list.length;
+    }
+
+    public void trimSize(int newSize){
+        int newArray[] = new int[newSize];
+        for(int i=0;i<newArray.length;i++){
+            newArray[i] = list[i];
+        }
+        list=newArray;
+        size = list.length;
     }
     @Override
     public Iterator iterator() {
